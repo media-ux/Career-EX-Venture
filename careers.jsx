@@ -144,7 +144,7 @@ function JobCard({ role, q, open, onToggle, delay }) {
             <Detail label="Department" value={role.dept} />
           </div>
           <div style={{ display: "flex", gap: 12, marginTop: 26, flexWrap: "wrap" }}>
-            <a className="btn btn-apply" href={"Apply.html?slug=" + role.id}>
+            <a className="btn btn-apply" href={role.applyUrl || ("Apply.html?slug=" + role.id)} {...(role.applyUrl ? { target: "_blank", rel: "noreferrer" } : {})}>
               Apply now <span className="arr"><Ico.arrowR /></span>
             </a>
             <a className="btn btn-ghost" href={role.detailUrl || APPLY_URL} {...(role.detailUrl ? {} : { target: "_blank", rel: "noreferrer" })}>
